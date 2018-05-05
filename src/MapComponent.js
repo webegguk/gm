@@ -51,7 +51,7 @@ class MapComponent extends Component {
             lng: results[0].geometry.location.lng()
           })
         } else {
-          alert('Couldnt\'t find the location ' + address)
+          alert('Couldn\'t find the location ' + address)
           reject()
         }
       })
