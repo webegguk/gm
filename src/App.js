@@ -19,7 +19,7 @@ class App extends Component {
         </header>
         <MapComponent
           markers={markers}
-          apiKey="AIzaSyAey7u198lGkRMVja1QsLmYlO4-GIa9wr0"
+          apiKey="AIzaSyABOjp3gFcBspEnEnE3YcEmMRKwWcydMYc"
         />
       </div>
     );
