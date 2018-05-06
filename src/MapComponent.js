@@ -21,6 +21,7 @@ class MapComponent extends Component {
     activeMarker: {},
     selectedPlace: {},
     markers: this.props.markers,
+    _loaded: false,
   };
 
   onMarkerClick = (props, marker, e) => {
@@ -58,6 +59,10 @@ class MapComponent extends Component {
     })
   }
 
+  componentWillUnmount() {
+    window.google.maps.event.clearListeners(this.listener1)
+  }
+
   componentDidMount() {
     this.bounds = new window.google.maps.LatLngBounds()
     this.geocoder = new window.google.maps.Geocoder()
@@ -72,15 +77,20 @@ class MapComponent extends Component {
             this.foundMarkers.push(result);
           });
         this.setState({
-          markers: this.foundMarkers
+          markers: this.foundMarkers,
+          _loaded: true,
         })
-        this.refs.mapComponent.map.fitBounds(this.bounds)
+        this.map = this.refs.mapComponent.map
+        this.map.fitBounds(this.bounds)
+        this.listener1 = window.google.maps.event.addDomListener(window, 'resize', () => {
+          this.map.fitBounds(this.bounds)
+        });
       })
   }
 
   render() {
 
-    if (!this.props.loaded) {
+    if (!this.state.loaded) {
       return <div>Loading...</div>
     }
     //console.log(this.state.markers)

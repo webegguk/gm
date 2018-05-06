@@ -4,9 +4,9 @@ import MapComponent from './MapComponent';
 
 let markers = [
   { id: 1, title: 'Bournemouth', address: 'Bournemouth' },
-  { id: 2, title: 'Edinburgh', address: 'Edinburgh' },
-  { id: 3, title: 'Stirling', address: 'Stirling' },
-  { id: 4, title: 'Germany', address: 'Germany' },
+  { id: 2, title: 'London', address: 'London' },
+  { id: 3, title: 'France', address: 'Paris' },
+  { id: 4, title: 'Germany', address: 'Berlin' },
 ];
 
 
