@@ -80,17 +80,16 @@ class MapComponent extends Component {
           markers: this.foundMarkers,
           _loaded: true,
         })
-        this.map = this.refs.mapComponent.map
-        this.map.fitBounds(this.bounds)
+        this.refs.mapComponent.map.fitBounds(this.bounds)
         this.listener1 = window.google.maps.event.addDomListener(window, 'resize', () => {
-          this.map.fitBounds(this.bounds)
+          this.refs.mapComponent.map.fitBounds(this.bounds)
         });
       })
   }
 
   render() {
 
-    if (!this.state.loaded) {
+    if (!this.props.loaded) {
       return <div>Loading...</div>
     }
     //console.log(this.state.markers)
